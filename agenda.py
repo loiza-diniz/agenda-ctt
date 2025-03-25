@@ -42,3 +42,12 @@ def remover_contato(contatos):
         print(f"contato {nome} removido com sucesso")
     else:
         print("contato não encontrado")
+
+def favoritar_desfavoritar(contatos):
+    nome = input("Digite o nome do contato a ser favoritado/desfavoritado: ")
+    if nome in contatos:
+        contatos[nome]['favorito'] = not contatos[nome]['favorito']
+        status = "favoritado" if contatos[nome]['favorito'] else "desfavoritado"
+        print(f"Contato {nome} {status} com sucesso!")
+    else:
+        print("contato não encontrado")
