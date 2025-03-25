@@ -24,3 +24,13 @@ def buscar_contato(contatos):
         print(f"{nome} - {telefone} - {favorito}")
     else:
         print("Contato não encontrado.")
+
+def atualizar_contato(contatos):
+    nome = input("informe o nome do contato a ser atualizado: ")
+    if nome in contatos:
+        telefone = input(f"digite uo novo telefone para {nome}: ")
+        favorito = input("o contato será favoritado (s/n): ").strip().lower() == 's'
+        contatos[nome] = {'telefone': telefone, 'favorito': favorito}
+        print(f"contato {nome} atualizado com sucesso!")
+    else:
+        print("contato não encontrado")
