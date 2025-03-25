@@ -1,3 +1,18 @@
+import json
+import os
+
+AGENDA_FILE = 'agenda.json'
+
+def carregar_contatos():
+    if os.path.exists(AGENDA_FILE):
+        try:
+            with open(AGENDA_FILE, 'r') as file:
+                return json.load(file)
+        except (json.JSONDecodeError, IOError) as e:
+            print(f"Erro ao carregar os dados da agenda: {e}")
+            return {}
+    return {}
+
 def adicionar_contato(contatos):
     nome = input("Digite o nome do contato: ")
     telefone = input("Digite o telefone do contato: ")
