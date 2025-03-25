@@ -60,3 +60,42 @@ def listar_favoritos(contatos):
         for nome in sorted(favoritos):
             telefone = favoritos['nome']['telefone']
             print(f"{nome} - {telefone} - Favorito")
+
+
+def menu():
+    contatos = {}
+    while True:
+        print("\nAGENDA DE CONTATOS")
+        print("1. Adicionar contato")
+        print("2. Listar contatos")
+        print("3. Buscar contato")
+        print("4. Atualizar contato")
+        print("5. Remover contato")
+        print("6. Favoritar/Desfavoritar contato")
+        print("7. Listar contatos favoritos")
+        print("8. Sair")
+
+        opcao = input("escolha uma opção: ").strip()
+
+        if opcao == '1':
+            adicionar_contato(contatos)
+        elif opcao == '2':
+            listar_contatos(contatos)
+        elif opcao == '3':
+            buscar_contato(contatos)
+        elif opcao == '4':
+            atualizar_contato(contatos)
+        elif opcao == '5':
+            remover_contato(contatos)
+        elif opcao == '6':
+            favoritar_desfavoritar(contatos)
+        elif opcao == '7':
+            listar_favoritos(contatos)
+        elif opcao == '8':
+            print("saindo...")
+            break
+        else:
+            print("Opção inválida! Tente novamente")
+
+if __name__ == "__main__":
+    menu()
