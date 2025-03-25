@@ -14,3 +14,13 @@ def listar_contatos(contatos):
             telefone = contatos[nome]['telefone']
             favorito = "Favorito" if contatos[nome]['favorito'] else "Não Favorito"
             print(f"{nome} - {telefone} - {favorito}")
+
+def buscar_contato(contatos):
+    nome = input("informe o nome do contato: ")
+    if nome in contatos:
+        telefone = contatos[nome]['telefone']
+        favorito = "favorito" if contatos [nome]['favorito'] else "não favorito"
+        print(f"{nome} - {telefone} - {favorito}")
+    else:
+        print("contato não encontrado")
+
