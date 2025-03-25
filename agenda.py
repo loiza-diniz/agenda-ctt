@@ -16,3 +16,11 @@ def listar_contatos(contatos):
             print(f"{nome} - {telefone} - {favorito}")
 
 
+def buscar_contato(contatos):
+    nome = input("Digite o nome do contato a ser buscado: ")
+    if nome in contatos:
+        telefone = contatos[nome]['telefone']
+        favorito = "Favorito" if contatos[nome]['favorito'] else "Não Favorito"
+        print(f"{nome} - {telefone} - {favorito}")
+    else:
+        print("Contato não encontrado.")
