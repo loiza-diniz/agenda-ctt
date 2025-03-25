@@ -34,3 +34,11 @@ def atualizar_contato(contatos):
         print(f"contato {nome} atualizado com sucesso!")
     else:
         print("contato não encontrado")
+
+def remover_contato(contatos):
+    nome = input("Digite o nome do contato a ser removido: ") 
+    if nome in contatos:
+        del contatos[nome]
+        print(f"contato {nome} removido com sucesso")
+    else:
+        print("contato não encontrado")
