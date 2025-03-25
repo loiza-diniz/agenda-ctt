@@ -21,12 +21,21 @@ def salvar_contatos(contatos):
         print(f"Erro ao salvar os dados da agenda: {e}")
 
 def adicionar_contato(contatos):
-    nome = input("Digite o nome do contato: ")
-    telefone = input("Digite o telefone do contato: ")
-    favorito = input("O contato é favorito? (s/n): ").strip().lower() == 's'
-    
-    contatos[nome] = {'telefone': telefone, 'favorito': favorito}
-    print(f"Contato {nome} adicionado com sucesso!")
+    try:
+        nome = input("informe o nome do contato: ").strip()
+        telefone = input("informe o telefone do contato: ").strip()
+        
+        if not nome or not telefone:
+            raise ValueError("Nome e telefone não podem ser vazios.")
+        
+        favorito = input("O contato é favorito? (s/n): ").strip().lower() == 's'
+        
+        contatos[nome] = {'telefone': telefone, 'favorito': favorito}
+        print(f"Contato {nome} adicionado com sucesso!")
+    except ValueError as ve:
+        print(f"Erro de validação: {ve}")
+    except Exception as e:
+        print(f"Ocorreu um erro inesperado ao adicionar o contato: {e}")
 
 def listar_contatos(contatos):
     if not contatos:
