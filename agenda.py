@@ -13,6 +13,13 @@ def carregar_contatos():
             return {}
     return {}
 
+def salvar_contatos(contatos):
+    try:
+        with open(AGENDA_FILE, 'w') as file:
+            json.dump(contatos, file, indent=4)
+    except (IOError, json.JSONDecodeError) as e:
+        print(f"Erro ao salvar os dados da agenda: {e}")
+
 def adicionar_contato(contatos):
     nome = input("Digite o nome do contato: ")
     telefone = input("Digite o telefone do contato: ")
