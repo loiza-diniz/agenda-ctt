@@ -51,3 +51,12 @@ def favoritar_desfavoritar(contatos):
         print(f"Contato {nome} {status} com sucesso!")
     else:
         print("contato não encontrado")
+
+def listar_favoritos(contatos):
+    favoritos = {nome: contatos[nome] for nome in contatos if contatos[nome]['favorito']}
+    if not favoritos:
+        print("Não há contatos favoritos.")
+    else:
+        for nome in sorted(favoritos):
+            telefone = favoritos['nome']['telefone']
+            print(f"{nome} - {telefone} - Favorito")
