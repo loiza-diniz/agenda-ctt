@@ -94,7 +94,7 @@ def listar_favoritos(contatos):
 
 
 def menu():
-    contatos = {}
+    contatos = carregar_contatos()
     while True:
         print("\nAGENDA DE CONTATOS")
         print("1. Adicionar contato")
@@ -110,16 +110,20 @@ def menu():
 
         if opcao == '1':
             adicionar_contato(contatos)
+            salvar_contatos(contatos)
         elif opcao == '2':
             listar_contatos(contatos)
         elif opcao == '3':
             buscar_contato(contatos)
         elif opcao == '4':
             atualizar_contato(contatos)
+            salvar_contatos(contatos)
         elif opcao == '5':
             remover_contato(contatos)
+            salvar_contatos(contatos)
         elif opcao == '6':
             favoritar_desfavoritar(contatos)
+            salvar_contatos(contatos)
         elif opcao == '7':
             listar_favoritos(contatos)
         elif opcao == '8':
